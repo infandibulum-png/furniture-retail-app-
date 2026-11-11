@@ -46,7 +46,7 @@ function calculate(){
   $('delivered').textContent=money(result.delivered);
   $('protected').textContent=result.protected===null?'Ask for a price':money(result.protected);
   $('staingard').textContent=result.protection===null?'Ask for a price':money(result.protection);
-  $('extras').textContent=result.protection===null?'Ask for a price':money($('protect').checked?result.protection:0);
+  $('extras').textContent=!$('protect').checked?'£0.00':result.protection===null?'Ask for a price':money(result.protection);
   $('total').textContent=money(result.total);
   $('totalNote').textContent=basket.length?basket.length+' added line item'+(basket.length===1?'':'s')+' · Combined pricing; delivery once. Staingard excludes loose accessories.':'Add items to calculate a combined quotation.';
   return result;
@@ -88,6 +88,11 @@ $('addItem').onclick=()=>{
   if(basket.length>=100)throw Error('This quotation already has 100 item lines.');
   const key=text('range'),r=ranges[key],product=r?.items[Number(text('catalogue'))],grade=text('band');
   if(!r||!product)throw Error('Choose a valid range and item.');
+  const gradeFabric=usesFabricCatalogue(key)&&!product.accessory;
+  const selectedFabric=gradeFabric?currentFabric():null;
+  if(gradeFabric&&!selectedFabric)throw Error('Select the fabric and colour from the approved grade list before adding this item.');
+  if(selectedFabric?.modelSpecific&&!$('fabricConfirm').checked)
+   throw Error('This fabric is restricted to specific models. Confirm compatibility before adding the item.');
   const quantity=qty('quantity');
   if(text('unit')===''){
    $('unit').focus();
@@ -99,7 +104,7 @@ $('addItem').onclick=()=>{
    throw Error('Enter a positive retail price before adding the item.');
   }
   const line={id:crypto.randomUUID(),range:key,model:required('model'),spec:required('spec'),
-   item:product.name,grade,variant:product.variants?text('back'):'',accessory:!!product.accessory,feet:text('feet'),fabric:text('fabric'),colour:text('colour'),
+   item:product.name,grade,variant:product.variants?text('back'):'',accessory:!!product.accessory,feet:text('feet'),fabric:selectedFabric?selectedFabric.name:text('fabric'),fabricCode:selectedFabric?.code||'',colour:selectedFabric?'':text('colour'),
    source:r.source,quantity,unit};
   basket.push(line);
   persistBasket();
@@ -147,11 +152,62 @@ function populateVariants(){
  configure();
 }
 function currentPriceMap(p){return p.variants?.[text('back')]??p.prices??{};}
+/* Fabrics in all together.xlsx apply only to the Alstons showroom-board ranges.
+   A fabric marked model-specific must be verified against the selected furniture. */
+let previousFabricContext='',previousFabricChoice='';
+function usesFabricCatalogue(key){return key.startsWith('board_')&&!!window.jdFabrics;}
+function isCompatibleFabric(f,p){
+ const n=p.name.toLowerCase(),
+  accent=n.includes('accent chair'),swivel=n.includes('swivel chair'),
+  ottoman=n.includes('ottoman'),stool=n.includes('stool'),
+  wing=n.includes('wing chair'),
+  scatter=p.accessory&&/scatter|cushion|pillow/.test(n);
+ switch(f.scope){
+  case 'C':return accent||ottoman||stool||scatter;
+  case 'T':return ottoman||stool||scatter;
+  case 'B':return accent||ottoman||stool||scatter;
+  case 'P':return scatter;
+  case 'S':return accent||swivel||ottoman||stool||scatter;
+  case 'N':return !accent&&!wing;
+  default:return true;
+ }
+}
+function currentFabric(){
+ return (window.jdFabrics?.[text('band')]||[]).find(f=>f.code===text('fabricChoice'))||null;
+}
+function updateFabricChooser(p,grade){
+ const active=usesFabricCatalogue(text('range'))&&!p.accessory&&grade!=='Fixed';
+ $('fabricChooserRow').hidden=!active;
+ $('fabricManualField').hidden=active;
+ $('fabricColourField').hidden=active;
+ if(!active){previousFabricContext='';previousFabricChoice='';$('fabricConfirmRow').hidden=true;return;}
+ const context=[text('range'),text('catalogue'),grade,text('back')].join('|');
+ if(context!==previousFabricContext){
+  const eligible=(window.jdFabrics?.[grade]||[]).filter(f=>isCompatibleFabric(f,p));
+  options('fabricChoice',[['','Select fabric and colour…'],...eligible.map(f=>[f.code,f.code+' · '+f.name+(f.modelSpecific?' (confirm model)':'')])]);
+  previousFabricContext=context;
+  previousFabricChoice='';
+  $('fabricConfirm').checked=false;
+ }
+ const selected=currentFabric();
+ if(text('fabricChoice')!==previousFabricChoice){
+  previousFabricChoice=text('fabricChoice');
+  $('fabricConfirm').checked=false;
+ }
+ $('fabricConfirmRow').hidden=!selected?.modelSpecific;
+ const notes=[];
+ if(selected?.scope!=='A'&&selected)notes.push(window.jdFabricScopeNotes?.[selected.scope]||'Restricted use');
+ if(selected?.modelSpecific)notes.push('Manufacturer list marks this fabric as model-specific: check it is offered on this exact sofa or chair.');
+ if(!selected)notes.push('Select a fabric to add this furniture to the basket. Discontinued XE fabrics are excluded.');
+ $('fabricAvailability').textContent=notes.join(' ');
+}
 function configure(){
  const r=ranges[text('range')],p=r.items[Number(text('catalogue'))],manual=text('range')==='manual',grade=text('band');
  const variant=Object.keys(p.variants||{}).length?text('back'):'',pricesForSelection=currentPriceMap(p);
  const selection=[text('range'),text('catalogue'),grade,text('feet'),variant].join('|'),changed=selection!==lastSelection;
  lastSelection=selection;
+ updateFabricChooser(p,grade);
+ const chosenFabric=usesFabricCatalogue(text('range'))&&!p.accessory?currentFabric():null;
  const needsManualPrice=manual||pricesForSelection[grade]==null;
  $('model').readOnly=!(manual||r.unpriced||needsManualPrice);
  $('unit').readOnly=!needsManualPrice;
@@ -164,19 +220,21 @@ function configure(){
    $('unit').value=pricesForSelection[grade]??'';
   }
   $('fabric').placeholder=r.collections?.[grade]?'e.g. '+r.collections[grade]:'Enter fabric or leather name if known';
-  const name=text('fabric')||r.collections?.[grade]||'fabric / leather name to confirm',
-   colour=text('colour')||'colour to confirm';
+  const name=chosenFabric?chosenFabric.name:text('fabric')||r.collections?.[grade]||'fabric / leather name to confirm',
+   colour=chosenFabric?'':text('colour')||'colour to confirm',
+   fabricCode=chosenFabric?chosenFabric.code+' · ':'',
+   restrictions=chosenFabric?.modelSpecific?' · Model compatibility to be confirmed':'';
   if(changed||!needsManualPrice)
    $('spec').value=p.accessory
     ?r.name+' · '+p.code+' · Fixed-price accessory; confirm applicability'
     :r.name+' · '+p.code+(variant?' · '+variant:'')+' · '+
      (grade.startsWith('Leather')?grade:grade==='Print'?'Print':grade==='Standard'?'Standard':'Fabric '+grade)+
-     ' · '+name+' '+colour+' · '+text('feet')+
+     ' · '+fabricCode+name+(colour?' '+colour:'')+' · '+text('feet')+restrictions+
      (text('range')==='marlesford'?' · Standard back · Encore Foam':'');
  }
  calculate();
 }
-$('range').onchange=populateItems;$('catalogue').onchange=populateGrades;$('band').onchange=configure;$('feet').onchange=configure;$('back').onchange=configure;for(const k of ['fabric','colour'])$(k).addEventListener('input',configure);refreshRangeOptions();
+$('range').onchange=populateItems;$('catalogue').onchange=populateGrades;$('band').onchange=configure;$('feet').onchange=configure;$('back').onchange=configure;$('fabricChoice').onchange=configure;$('fabricConfirm').onchange=configure;for(const k of ['fabric','colour'])$(k).addEventListener('input',configure);refreshRangeOptions();
 for(const k of ['unit','quantity','delivery','protect'])$(k).addEventListener('input',()=>{if($('protect').checked)$('delivery').checked=true;$('delivery').disabled=$('protect').checked;calculate();});
 document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x===b));['sales','stock','care','settings'].forEach(k=>$(k).classList.toggle('hidden',k!==b.dataset.page));document.querySelector('.heading h2').textContent={sales:'Sales dashboard',stock:'Warehouse',care:'Customer care',settings:'Your workspace'}[b.dataset.page];});
 function table(id,rows,fields,click){$(id).replaceChildren();for(const r of rows){const tr=document.createElement('tr');for(const field of fields){const td=document.createElement('td');td.textContent=typeof field==='function'?field(r):r[field]??'';tr.append(td);}if(click){tr.className='click-row';tr.tabIndex=0;tr.onclick=()=>click(r);tr.onkeydown=e=>{if(e.key==='Enter')click(r);};}$(id).append(tr);}}
