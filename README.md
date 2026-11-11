@@ -3,8 +3,10 @@
 Android-friendly pilot of sales quotes, supplier specifications, existing PO receiving and customer care. Published privately through the John Doe Retail Site. The GitHub repository is public; do not commit customer data, supplier cost lists or credentials.
 
 ## Implemented
-- Marlesford catalogue with 13 configurations and supplier wording for Matteo.
-- Furniture-only, plus £69 delivery, plus delivery and variable Staingard Protect 6 totals. Unknown protection stays unpriced.
+- Searchable catalogue with 226 named ranges from historical price lists and cards, plus a manual fallback. Includes 1,700+ item/configuration options and source-referenced retail figures for eligible rows.
+- Existing Marlesford catalogue retains 13 core configurations and supplier wording for Matteo.
+- Ranges whose item/grade prices cannot be reliably matched are selectable but require a staff-confirmed retail amount; supplier costs and historic stock counts are not published.
+- Quotation totals, £69 delivery and variable Staingard Protect 6 totals based only on furniture price; selectable ranges include searchable upholstery and cabinet-furniture collections. Unknown protection stays unpriced.
 - Quote review, print/PDF and conversion to customer order.
 - Record existing PO lines, expected dates, partial unit receipts, duplicate delivery-note reference and excess quantity rejection, bay and condition.
 - Management routing for safety, staff, refund and repeat-repair concerns.
@@ -17,4 +19,4 @@ This is a browser-local pilot, not the complete retailer management system. Use 
 Serve this directory with a static HTTP server. Production hosting requires HTTPS for installation. No build dependencies.
 
 ## Validation
-Browser checked: £1545 furniture / £1614 delivered / £1773 delivered with a manually entered £159 protection charge; saving, quote conversion, and duplicate receiving rejection. JavaScript syntax checked. Physical Android installation has not been tested.
+Original pilot browser-checked: £1545 furniture / £1614 delivered / £1773 delivered with a manually entered £159 protection charge; saving, quote conversion, and duplicate receiving rejection. The catalogue expansion has been statically checked and JavaScript syntax-validated, but the updated live Android site has not yet been independently tested.
