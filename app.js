@@ -223,7 +223,7 @@ function configure(){
   const name=chosenFabric?chosenFabric.name:text('fabric')||r.collections?.[grade]||'fabric / leather name to confirm',
    colour=chosenFabric?'':text('colour')||'colour to confirm',
    fabricCode=chosenFabric?chosenFabric.code+' · ':'',
-   restrictions=chosenFabric?.modelSpecific?' · Model compatibility to be confirmed':'';
+   restrictions=chosenFabric?.modelSpecific?($('fabricConfirm').checked?' · Model-specific fabric suitability confirmed by staff':' · Model-specific fabric suitability requires confirmation'):'';
   if(changed||!needsManualPrice)
    $('spec').value=p.accessory
     ?r.name+' · '+p.code+' · Fixed-price accessory; confirm applicability'
