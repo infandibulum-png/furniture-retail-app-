@@ -2,16 +2,116 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#183d34"><title>John Doe · Sales workspace</title><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icon.svg">
+<meta name="theme-color" content="#7D8D80"><title>John Doe of Diss · Sales workspace</title><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}body{margin:0;background:#f4f6f4;color:#20332b;font:16px system-ui,Arial}header{background:#183d34;color:white;padding:20px 5%}header h1{margin:0;font-size:23px}header p{margin:5px 0 0;color:#d5e5dc}main{max-width:1100px;margin:auto;padding:24px 16px}nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}button{background:#dce9e2;color:#183d34;border:0;border-radius:8px;padding:11px 15px;font-weight:700;cursor:pointer}button.active,button.primary{background:#183d34;color:white}.columns{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.card{background:white;border:1px solid #dce6df;border-radius:12px;padding:22px;margin-bottom:18px}h2{margin:0 0 16px;font-size:21px}label{display:block;margin:12px 0 5px;font-weight:600;font-size:14px}input,select,textarea{width:100%;font:inherit;border:1px solid #c6d4ca;border-radius:7px;padding:10px}textarea{min-height:85px}.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}.check{display:flex;align-items:center;gap:10px;margin:16px 0}.check input{width:auto}.check label{margin:0}.line{display:flex;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px solid #e6eee9}.total{font-size:29px;font-weight:800;color:#183d34}.muted{color:#63786b;font-size:13px}.hidden{display:none}table{width:100%;border-collapse:collapse;font-size:14px}td,th{text-align:left;border-bottom:1px solid #e6eee9;padding:9px} .scroll{overflow-x:auto}#status{min-height:24px;color:#276144}@media(max-width:750px){.columns,.two{grid-template-columns:1fr}.card{padding:16px}}
 
 body{background:#f6f5ef;font-size:14px}header{padding:24px 5%;border-bottom:4px solid #b59d68}header h1{font-family:Georgia,serif;letter-spacing:3px;font-weight:400}header h1 small{display:block;font:9px system-ui;letter-spacing:4px;margin-top:6px}header p{font-size:12px;margin-top:15px}.pilot{border:1px solid #e5ddc7;background:#f0ebdc;border-radius:7px;padding:12px 16px;font-size:12px;color:#75613b;margin-bottom:27px}.heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:25px}.heading h2{font:36px Georgia;margin:7px 0}.eyebrow{font-size:9px;letter-spacing:2px;color:#7d8b79}.card{border-color:#e2e5dc;padding:25px;box-shadow:0 3px 15px #1b442b03}h2{font-family:Georgia,serif;font-weight:400;font-size:24px}label{font-size:12px;font-weight:500;color:#64735c}button{font-weight:500;font-size:12px;min-height:42px;border-radius:5px}input,select,textarea{background:#fffefb;border-color:#d9dfd0}nav{margin-bottom:24px;gap:9px}nav button{background:#e9ede3}.line{font-size:12px;padding:17px 0}.line strong{font-size:17px}.total{font-family:Georgia;font-weight:400;font-size:38px}.muted{font-size:11px;line-height:1.7}td,th{font-size:12px;padding:13px 8px}th{font-weight:500;color:#8b9682}.click-row{cursor:pointer}.click-row:hover{background:#f0f4e9}hr{border:0;border-top:1px solid #e2e6d9;margin:25px 0}footer{color:#8a9680;font-size:11px;padding:16px 0}dialog{border:1px solid #ccd8c2;border-radius:12px;max-width:600px;width:calc(100% - 30px);padding:25px;color:#203c29}dialog::backdrop{background:#102c2266}#detailContent p{white-space:pre-wrap}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #b59d68;outline-offset:2px}[hidden]{display:none!important}@media(max-width:750px){input,select,textarea{font-size:16px}.heading h2{font-size:31px}.card{padding:19px}.columns{display:flex;flex-direction:column}.pilot{font-size:11px}.two{grid-template-columns:1fr 1fr}}@media(max-width:400px){.two{grid-template-columns:1fr}}@media print{body>header,main>*:not(dialog),dialog>p{display:none!important}dialog{position:static;display:block;border:0;max-width:none;width:100%}dialog::backdrop{display:none}}
+
+/* John Doe of Diss · brand palette sampled from the supplied sage-green logo */
+:root {
+  --jd-sage: #7D8D80;
+  --jd-sage-dark: #526657;
+  --jd-sage-deep: #364E40;
+  --jd-sage-pale: #EAF0E9;
+  --jd-paper: #FAFBF8;
+  --jd-cream: #F5F7F2;
+  --jd-ink: #2E4135;
+  --jd-white: #F8FAF6;
+  --jd-border: #C8D3C7;
+  --jd-muted: #54695A;
+}
+body { background: var(--jd-sage-pale); color: var(--jd-ink); }
+header.brand-header {
+  background: var(--jd-sage);
+  color: var(--jd-white);
+  border-bottom: 0;
+  padding: 34px 16px 24px;
+  text-align: center;
+}
+header.brand-header h1 {
+  margin: 0 auto;
+  font: 500 clamp(36px, 7vw, 76px)/1.04 "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  letter-spacing: -0.048em;
+  color: var(--jd-white);
+  white-space: nowrap;
+}
+.brand-john { font-weight: 650; }
+.brand-of {
+  font-style: italic;
+  font-weight: 400;
+  font-size: .91em;
+  letter-spacing: -.065em;
+  margin: 0 -.02em;
+}
+.brand-diss { font-weight: 400; letter-spacing: -.056em; }
+header.brand-header p {
+  margin: 13px 0 0;
+  color: #F0F4EE;
+  font-size: 11px;
+  letter-spacing: .15em;
+}
+main { max-width: 1100px; }
+.heading h2 { color: var(--jd-sage-deep); }
+.eyebrow { color: var(--jd-muted); }
+.card {
+  background: var(--jd-paper);
+  border: 1px solid var(--jd-border);
+  box-shadow: 0 4px 16px #394F4010;
+}
+h2, .total { color: var(--jd-sage-deep); }
+label, th, .muted, footer { color: var(--jd-muted); }
+.line { border-bottom-color: #DDE5DA; }
+.pilot {
+  color: var(--jd-sage-deep);
+  background: #DCE6DA;
+  border: 1px solid var(--jd-border);
+}
+button, nav button {
+  color: var(--jd-sage-deep);
+  background: #DDE7DC;
+  border: 1px solid var(--jd-border);
+}
+button:hover, nav button:hover { background: #CCDACC; }
+button.active, button.primary, nav button.active {
+  color: var(--jd-white);
+  background: var(--jd-sage-dark);
+  border-color: var(--jd-sage-dark);
+}
+button.active:hover, button.primary:hover { background: var(--jd-sage-deep); }
+input, select, textarea {
+  color: var(--jd-ink);
+  background: #FFFFFF;
+  border-color: var(--jd-border);
+}
+input:focus-visible, select:focus-visible, textarea:focus-visible, button:focus-visible {
+  outline: 3px solid #9DB09D;
+  outline-offset: 2px;
+}
+input[type="checkbox"] { accent-color: var(--jd-sage-dark); }
+a { color: var(--jd-sage-deep); }
+a:hover { color: #20392A; }
+#status, #stockStatus, #careStatus { color: var(--jd-sage-deep); }
+.click-row:hover { background: #EAF0E8; }
+th, td { border-bottom-color: #DDE5DA; }
+hr { border-top-color: #DDE5DA; }
+dialog { color: var(--jd-ink); background: var(--jd-paper); border-color: var(--jd-border); }
+dialog::backdrop { background: #2E413580; }
+@media (max-width: 500px) {
+  header.brand-header { padding: 27px 8px 22px; }
+  header.brand-header h1 { font-size: clamp(33px, 9.7vw, 48px); }
+  header.brand-header p { letter-spacing: .08em; }
+}
+@media print {
+  body { background: white; color: #111; }
+  dialog { background: white; color: #111; }
+}
 </style></head>
-<body><header><h1>JOHN DOE <small>OF DISS</small></h1><p>Your showroom, thoughtfully connected.</p></header>
+<body><header class="brand-header"><h1 aria-label="John Doe of Diss"><span class="brand-john">John Doe</span> <span class="brand-of">of</span> <span class="brand-diss">Diss</span></h1><p>Your showroom, thoughtfully connected.</p></header>
 <main><div class="pilot"><strong>Pilot workspace</strong> · Use sample customer details. Records stay in this browser; they do not sync between devices.</div><div class="heading"><div><p class="eyebrow">DISS SHOWROOM</p><h2>Sales dashboard</h2></div><button id="install" hidden>Install on Android</button></div><nav><button class="active" data-page="sales">Sales</button><button data-page="stock">Warehouse</button><button data-page="care">Customer care</button><button data-page="settings">Settings & export</button></nav>
 <section id="sales"><div class="columns"><div class="card"><h2>Create quotation</h2><label for="rangeSearch">Find a range</label><input id="rangeSearch" type="search" placeholder="Type a range or supplier name"><p class="muted" id="rangeCount"></p><div class="two"><div><label for="range">1 · Range</label><select id="range"></select></div><div><label for="catalogue">2 · Item</label><select id="catalogue"></select></div><div><label for="band">3 · Fabric / leather grade</label><select id="band"></select></div><div><label for="feet">4 · Foot colour / finish</label><select id="feet"></select></div></div><div class="two"><div><label for="fabric">Fabric / leather name</label><input id="fabric" placeholder="Optional name from swatch"></div><div><label for="colour">Fabric / leather colour</label><input id="colour" list="fabricColours" placeholder="Enter colour from swatch"><datalist id="fabricColours"></datalist></div></div><p class="muted" id="source"></p><div class="two"><div><label for="customer">Customer</label><input id="customer" placeholder="Customer name or reference"></div><div><label for="model">Furniture model</label><input id="model" placeholder="e.g. Marlesford"></div></div><label for="spec">Configuration, fabric and options</label><input id="spec" placeholder="Supplier range, model code, fabric, colour, feet"><div class="two"><div><label for="quantity">Quantity</label><input id="quantity" type="number" min="1" step="1" value="1"></div><div><label for="unit">Unit retail price (£)</label><input id="unit" type="number" min="0" step=".01" value="0"></div></div><div class="line"><span>Staingard Protect 6 · based on furniture only</span><strong id="staingard">£0.00</strong></div><div class="check"><input id="protect" type="checkbox"><label for="protect">Include Staingard Protect 6</label></div><div class="check"><input id="delivery" type="checkbox"><label for="delivery">Add delivery (£69)</label></div><label for="notes">Quotation notes</label><textarea id="notes"></textarea><p><button class="primary" id="saveQuote">Save quotation</button></p><p id="status" role="status"></p></div>
 <div class="card"><h2>Live price summary</h2><div class="line"><span>Furniture + delivery</span><strong id="delivered">£69.00</strong></div><div class="line"><span>Furniture + delivery + Staingard</span><strong id="protected">£0.00</strong></div><div class="line"><span>Selected extras</span><strong id="extras">£0.00</strong></div><p>Quotation total</p><div class="total" id="total">£0.00</div><p class="muted">Staingard band uses furniture value × quantity, excluding the £69 delivery charge. The supplied table ends at £19,999. Prices need confirmation before commercial use. Quotes remain in this browser.</p></div></div><div class="card"><h2>Saved quotations</h2><p class="muted">Select a quote to review its supplier specification or convert it into an order.</p><div class="scroll"><table><thead><tr><th>Reference</th><th>Customer</th><th>Model</th><th>Total</th></tr></thead><tbody id="quotes"></tbody></table></div></div><div class="card"><h2>Customer orders</h2><div class="scroll"><table><thead><tr><th>Reference</th><th>Customer</th><th>Product</th><th>Total</th></tr></thead><tbody id="orders"></tbody></table></div></div></section>
 <section id="stock" class="hidden"><div class="card"><h2>Book stock into warehouse</h2><p class="muted">Record an existing PO first, then receive its goods. This never sends a new purchase to a supplier. Quantity means whole units, not individual sofa packages.</p><div class="two"><div><label for="expectedPO">Existing PO reference</label><input id="expectedPO"></div><div><label for="expectedSKU">Expected SKU</label><input id="expectedSKU"></div><div><label for="expectedQty">Units already ordered</label><input id="expectedQty" type="number" min="1" step="1" value="1"></div><div><label for="expectedDate">Expected arrival (if confirmed)</label><input id="expectedDate" type="date"></div></div><p><button id="recordPO">Record existing PO</button></p><div class="scroll"><table><thead><tr><th>PO</th><th>SKU</th><th>Due</th><th>Remaining</th></tr></thead><tbody id="expected"></tbody></table></div><hr><div class="two"><div><label for="po">Purchase order</label><input id="po"></div><div><label for="sku">SKU / barcode</label><input id="sku"></div><div><label for="received">Quantity received</label><input id="received" type="number" min="1" step="1" value="1"></div><div><label for="bay">Warehouse bay</label><input id="bay"></div></div><label for="receiptRef">Unique receipt / delivery-note line reference</label><input id="receiptRef" placeholder="e.g. DN123-line1"><label for="condition">Condition</label><select id="condition"><option>Unchecked</option><option>Checked</option><option>Damaged — hold</option></select><p><button class="primary" id="receive">Record receipt</button></p><p id="stockStatus" role="status"></p><div class="scroll"><table><thead><tr><th>PO</th><th>SKU</th><th>Qty</th><th>Bay</th><th>Condition</th></tr></thead><tbody id="receipts"></tbody></table></div></div></section>
 <section id="care" class="hidden"><div class="card"><h2>Log customer issue</h2><div class="two"><div><label for="ref">Customer / order reference</label><input id="ref"></div><div><label for="assignee">Send to</label><select id="assignee"><option>Sales</option><option>Management</option></select></div></div><label for="category">Concern type</label><select id="category"><option>Delivery update</option><option>Missing component</option><option>Damage or defect</option><option>Refund request</option><option>Repeated repair</option><option>Staff complaint</option><option>Safety concern</option></select><label for="issue">Description</label><textarea id="issue"></textarea><p><button class="primary" id="logIssue">Log issue</button></p><p id="careStatus" role="status"></p><div class="scroll"><table><thead><tr><th>Reference</th><th>Team</th><th>Issue</th></tr></thead><tbody id="issues"></tbody></table></div></div></section>
-<section id="settings" class="hidden"><div class="card"><h2>Use on Android</h2><p>Open this site in Chrome. In the browser menu, choose <strong>Add to Home screen</strong> or <strong>Install app</strong>.</p><h2>Keep your records</h2><p>Export before changing browser or clearing its data. This pilot has no shared database, staff accounts or automatic backups yet.</p><button id="export">Export records (JSON)</button><h2 style="margin-top:25px">Price references</h2><p>The source register links the price boards, cards, sale versions and supplier documents we have made or used. Check the original and effective price before quoting.</p><p><a href="https://chatgpt.com/library?file_id=libfile_0c96c3206f788191ba5ef59b50541519&account_id=personal" target="_blank" rel="noopener noreferrer">Open the John Doe price source register ↗</a></p><h2 style="margin-top:25px">Next connections</h2><p>Supplier email and lead-time synchronisation, website stock, accounts and shared staff access are not connected. Multi-package labels and stocktakes are still to be added.</p></div></section><dialog id="detail"><div id="detailContent"></div><p><button id="convert">Accept & create customer order</button> <button id="print">Print / PDF</button> <button id="closeDetail">Close</button></p></dialog><footer>John Doe of Diss · Private pilot · Version 0.4</footer></main><script src="./catalogue-extra.js"></script><script src="./app.js"></script></body></html>
+<section id="settings" class="hidden"><div class="card"><h2>Use on Android</h2><p>Open this site in Chrome. In the browser menu, choose <strong>Add to Home screen</strong> or <strong>Install app</strong>.</p><h2>Keep your records</h2><p>Export before changing browser or clearing its data. This pilot has no shared database, staff accounts or automatic backups yet.</p><button id="export">Export records (JSON)</button><h2 style="margin-top:25px">Price references</h2><p>The source register links the price boards, cards, sale versions and supplier documents we have made or used. Check the original and effective price before quoting.</p><p><a href="https://chatgpt.com/library?file_id=libfile_0c96c3206f788191ba5ef59b50541519&account_id=personal" target="_blank" rel="noopener noreferrer">Open the John Doe price source register ↗</a></p><h2 style="margin-top:25px">Next connections</h2><p>Supplier email and lead-time synchronisation, website stock, accounts and shared staff access are not connected. Multi-package labels and stocktakes are still to be added.</p></div></section><dialog id="detail"><div id="detailContent"></div><p><button id="convert">Accept & create customer order</button> <button id="print">Print / PDF</button> <button id="closeDetail">Close</button></p></dialog><footer>John Doe of Diss · Private pilot · Version 0.5</footer></main><script src="./catalogue-extra.js"></script><script src="./app.js"></script></body></html>
