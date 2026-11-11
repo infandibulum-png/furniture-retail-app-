@@ -3,9 +3,9 @@
 Android-friendly pilot of sales quotes, supplier specifications, existing PO receiving and customer care. Published privately through the John Doe Retail Site. The GitHub repository is public; do not commit customer data, supplier cost lists or credentials.
 
 ## Implemented
-- Searchable catalogue with 226 named ranges from historical price lists and cards, plus a manual fallback. Includes 1,700+ item/configuration options and source-referenced retail figures for eligible rows.
+- Searchable selection restricted to the original showroom-board ranges (Marlesford, Snape, Snape High Back, Aylesham, Sandringham and Somerton), plus a manual-price fallback. Previously auto-imported manufacturer catalogue entries and unverified ranges have been removed because their showroom names or prices could be incorrect.
 - Existing Marlesford catalogue retains 13 core configurations and supplier wording for Matteo.
-- Ranges whose item/grade prices cannot be reliably matched are selectable but require a staff-confirmed retail amount; supplier costs and historic stock counts are not published.
+- Each listed item/grade must have a retail board price; other products can only be added using the manual-price fallback after staff confirmation. Supplier costs and historic stock counts are not published.
 - Quotation totals, £69 delivery and variable Staingard Protect 6 totals based only on furniture price; selectable ranges include searchable upholstery and cabinet-furniture collections. Unknown protection stays unpriced.
 - Multi-item quotation basket: add different ranges, products, grades, finishes and quantities to one quote; remove any line before saving; draft lines survive a refresh on the same browser.
 - Order-wide £69 delivery is charged once and Staingard is calculated on the combined furniture subtotal.
