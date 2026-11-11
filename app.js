@@ -17,6 +17,7 @@ ranges.marlesford.items.push({name:'Swivel Chair',code:'Swivel Chair',grades:['P
 // The care plan is for furniture; leave loose scatter-cushion accessories out of the quote selector.
 for(const key of ['snape','snapeHigh'])ranges[key].items=ranges[key].items.filter(p=>!p.name.startsWith('Scatter'));
 ranges.sandringham.items.find(p=>p.name==='High Back Chair').code='High Back Chair (Samantha High Back)';
+Object.assign(ranges,window.jdAdditionalRanges||{});
 const marlesfordColours={C:['Brew','Chalk','Deep Moss','Fero','Hollow'],D:['Ash','Black','Bournville','Clay','Dove','Espresso','Ivory','Olive','Sand'],E:['Black','Cacao','Charcoal','Dove Grey','Indigo','Ink','Khaki','Mink','Mist','Mocha','Olive','Oyster','Pebble','Snow']};
 // The supplied care-plan table applies to furniture value only, before the delivery charge.
 const tiers=[[0,49999,5000],[50000,99999,15000],[100000,149999,17500],[150000,199999,20000],[200000,299999,25000],[300000,399999,27500],[400000,499999,30000],[500000,999999,32500],[1000000,1999999,37500]];
@@ -31,11 +32,43 @@ function amount(id){if(!/^\d+(\.\d{1,2})?$/.test(text(id)))throw Error('Enter a 
 function prices(unit,q,delivery,protect){if(!Number.isSafeInteger(unit)||unit<0||!Number.isSafeInteger(q)||q<1)throw Error('Invalid price or quantity.');const base=unit*q,protection=staingard(base);if(protect&&protection===null)throw Error('Staingard rate for furniture of £20,000 or more needs confirmation.');return {base,delivered:base+6900,protected:protection===null?null:base+6900+protection,protection,total:base+((delivery||protect)?6900:0)+(protect?protection:0)};}
 function calculate(){try{const result=prices(amount('unit'),qty('quantity'),$('delivery').checked,$('protect').checked);$('delivered').textContent=money(result.delivered);$('protected').textContent=result.protected===null?'Ask for a price':money(result.protected);$('staingard').textContent=result.protection===null?'Ask for a price':money(result.protection);$('extras').textContent=money(result.total-result.base);$('total').textContent=money(result.total);$('status').textContent='';return result;}catch(e){$('total').textContent='Check entries';$('status').textContent=e.message;return null;}}
 function options(id,items){$(id).replaceChildren(...items.map(([value,label])=>new Option(label,value)));}
-for(const [key,r] of Object.entries(ranges))$('range').add(new Option(r.name,key));
-function populateItems(){const r=ranges[text('range')];options('catalogue',r.items.map((p,i)=>[String(i),p.name]));options('feet',r.feet.map(f=>[f,f]));$('fabric').value='';$('colour').value='';if(r===ranges.manual){$('model').value='';$('unit').value='0';$('spec').value='';}$('source').textContent='Retail source: '+r.source+(text('range')==='somerton'?' Foot finish needs confirmation.':'');populateGrades();}
-function populateGrades(){const r=ranges[text('range')],p=r.items[Number(text('catalogue'))],available=(p.grades??r.grades).filter(g=>p.prices[g]!=null);options('band',(available.length?available:['Manual']).map(g=>[g,r.collections?.[g]?'Fabric '+g+' · '+r.collections[g]:g==='Manual'?'Manual price':g==='Print'||g.startsWith('Leather')||p.grades?g:'Fabric band '+g]));configure();}
-function configure(){const r=ranges[text('range')],p=r.items[Number(text('catalogue'))],manual=text('range')==='manual',grade=text('band');for(const k of ['model','unit','spec'])$(k).readOnly=!manual;options('fabricColours',(r===ranges.marlesford?marlesfordColours[grade]??[]:[]).map(c=>[c,c]));if(!manual){$('model').value=r.name+' '+p.name;$('unit').value=p.prices[grade]??'';$('fabric').placeholder=r.collections?.[grade]?'e.g. '+r.collections[grade]:'Enter fabric or leather name if known';const name=text('fabric')||r.collections?.[grade]||'fabric / leather name to confirm',colour=text('colour')||'colour to confirm';$('spec').value=r.supplier+' '+p.code+' · '+(grade.startsWith('Leather')?grade:grade==='Print'?'Print':'Fabric '+grade)+' · '+name+' '+colour+' · '+text('feet')+(text('range')==='marlesford'?' · Standard back · Encore Foam':'');}calculate();}
-$('range').onchange=populateItems;$('catalogue').onchange=populateGrades;$('band').onchange=configure;$('feet').onchange=configure;for(const k of ['fabric','colour'])$(k).addEventListener('input',configure);populateItems();
+const allRangeEntries=Object.entries(ranges).sort((a,b)=>a[1].name.localeCompare(b[1].name,'en-GB'));
+const duplicateRangeNames=Object.values(ranges).reduce((m,r)=>(m.set(r.name.toLowerCase(),(m.get(r.name.toLowerCase())||0)+1),m),new Map());
+let lastSelection='';
+function refreshRangeOptions(){
+ const query=$('rangeSearch').value.trim().toLowerCase(),previous=$('range').value;
+ const matches=allRangeEntries.filter(([key,r])=>r.name.toLowerCase().includes(query)||r.supplier.toLowerCase().includes(query));
+ options('range',matches.length?matches.map(([key,r])=>[key,duplicateRangeNames.get(r.name.toLowerCase())>1?r.name+' — '+r.supplier:r.name]):[['','No matching ranges']]);
+ $('range').disabled=!matches.length;
+ $('rangeCount').textContent=matches.length+' of '+allRangeEntries.length+' ranges shown';
+ if(matches.length){$('range').value=matches.some(([key])=>key===previous)?previous:matches[0][0];populateItems();}
+ else $('source').textContent='No matching ranges. Change your search to show the catalogue.';
+}
+$('rangeSearch').addEventListener('input',refreshRangeOptions);
+function populateItems(){const r=ranges[text('range')];options('catalogue',r.items.map((p,i)=>[String(i),p.name]));options('feet',r.feet.map(f=>[f,f]));$('fabric').value='';$('colour').value='';if(r===ranges.manual){$('model').value='';$('unit').value='0';$('spec').value='';}$('source').textContent='Retail source: '+r.source+(r.unpriced?' · Enter a confirmed retail price; no automatic amount is available.':'')+(text('range')==='somerton'?' Foot finish needs confirmation.':'');populateGrades();}
+function populateGrades(){const r=ranges[text('range')],p=r.items[Number(text('catalogue'))],available=(p.grades??r.grades).filter(g=>r.unpriced||p.prices[g]!=null);options('band',(available.length?available:['Manual']).map(g=>[g,r.collections?.[g]?'Fabric '+g+' · '+r.collections[g]:g==='Manual'?'Manual price':g==='Print'||g.startsWith('Leather')||p.grades?g:'Fabric band '+g]));configure();}
+function configure(){
+ const r=ranges[text('range')],p=r.items[Number(text('catalogue'))],manual=text('range')==='manual',grade=text('band');
+ const selection=[text('range'),text('catalogue'),grade,text('feet')].join('|'),changed=selection!==lastSelection;
+ lastSelection=selection;
+ const needsManualPrice=manual||p.prices[grade]==null;
+ $('model').readOnly=!(manual||r.unpriced||needsManualPrice);
+ $('unit').readOnly=!needsManualPrice;
+ $('spec').readOnly=!(manual||r.unpriced||needsManualPrice);
+ $('unit').placeholder=needsManualPrice?'Enter verified retail price':'';
+ options('fabricColours',(r===ranges.marlesford?marlesfordColours[grade]??[]:[]).map(c=>[c,c]));
+ if(!manual){
+  if(changed){
+   $('model').value=r.name+(p.name.startsWith('Enter ')||p.name.startsWith('Other item')?'':' '+p.name);
+   $('unit').value=p.prices[grade]??'';
+  }
+  $('fabric').placeholder=r.collections?.[grade]?'e.g. '+r.collections[grade]:'Enter fabric or leather name if known';
+  const name=text('fabric')||r.collections?.[grade]||'fabric / leather name to confirm',colour=text('colour')||'colour to confirm';
+  if(changed||!needsManualPrice)$('spec').value=r.supplier+' '+p.code+' · '+(grade.startsWith('Leather')?grade:grade==='Print'?'Print':grade==='Standard'?'Standard': 'Fabric '+grade)+' · '+name+' '+colour+' · '+text('feet')+(text('range')==='marlesford'?' · Standard back · Encore Foam':'');
+ }
+ calculate();
+}
+$('range').onchange=populateItems;$('catalogue').onchange=populateGrades;$('band').onchange=configure;$('feet').onchange=configure;for(const k of ['fabric','colour'])$(k).addEventListener('input',configure);refreshRangeOptions();
 for(const k of ['unit','quantity','delivery','protect'])$(k).addEventListener('input',()=>{if($('protect').checked)$('delivery').checked=true;$('delivery').disabled=$('protect').checked;calculate();});
 document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x===b));['sales','stock','care','settings'].forEach(k=>$(k).classList.toggle('hidden',k!==b.dataset.page));document.querySelector('.heading h2').textContent={sales:'Sales dashboard',stock:'Warehouse',care:'Customer care',settings:'Your workspace'}[b.dataset.page];});
 function table(id,rows,fields,click){$(id).replaceChildren();for(const r of rows){const tr=document.createElement('tr');for(const field of fields){const td=document.createElement('td');td.textContent=typeof field==='function'?field(r):r[field]??'';tr.append(td);}if(click){tr.className='click-row';tr.tabIndex=0;tr.onclick=()=>click(r);tr.onkeydown=e=>{if(e.key==='Enter')click(r);};}$(id).append(tr);}}
