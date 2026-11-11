@@ -46,7 +46,7 @@ function calculate(){
   $('delivered').textContent=money(result.delivered);
   $('protected').textContent=result.protected===null?'Ask for a price':money(result.protected);
   $('staingard').textContent=result.protection===null?'Ask for a price':money(result.protection);
-  $('extras').textContent=money(result.total-result.base);
+  $('extras').textContent=result.protection===null?'Ask for a price':money($('protect').checked?result.protection:0);
   $('total').textContent=money(result.total);
   $('totalNote').textContent=basket.length?basket.length+' added line item'+(basket.length===1?'':'s')+' · Combined pricing; delivery once. Staingard excludes loose accessories.':'Add items to calculate a combined quotation.';
   return result;
