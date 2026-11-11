@@ -23,6 +23,13 @@ const marlesfordColours={C:['Brew','Chalk','Deep Moss','Fero','Hollow'],D:['Ash'
 const tiers=[[0,49999,5000],[50000,99999,15000],[100000,149999,17500],[150000,199999,20000],[200000,299999,25000],[300000,399999,27500],[400000,499999,30000],[500000,999999,32500],[1000000,1999999,37500]];
 function staingard(furniture){return tiers.find(([min,max])=>furniture>=min&&furniture<=max)?.[2]??null;}
 const blank=()=>({quotes:[],orders:[],receipts:[],issues:[],pos:[]});let data=blank(),selectedQuote=null;
+const DRAFT_KEY='jd-retail-draft-lines-v1';
+let basket=[];
+try{
+ const saved=JSON.parse(localStorage.getItem(DRAFT_KEY));
+ if(Array.isArray(saved)&&saved.length<=100&&saved.every(x=>Number.isSafeInteger(x.unit)&&x.unit>0&&Number.isSafeInteger(x.quantity)&&x.quantity>0&&typeof x.model==='string'&&typeof x.spec==='string'))basket=saved;
+}catch{}
+function persistBasket(){try{localStorage.setItem(DRAFT_KEY,JSON.stringify(basket));}catch{ /* Keep the current unsaved basket in memory if storage is unavailable. */ }}
 try{const saved=JSON.parse(localStorage.getItem('jd-retail-v2'));if(saved&&Object.keys(data).every(k=>Array.isArray(saved[k])))data=saved;}catch{}
 function commit(next){try{localStorage.setItem('jd-retail-v2',JSON.stringify(next));data=next;draw();return true;}catch{alert('Unable to save: browser storage is full or unavailable. Export your records before closing.');return false;}}
 function mutate(fn,status,success){try{const next=structuredClone(data);fn(next);if(commit(next))$(status).textContent=success;}catch(e){$(status).textContent=e.message;}}
@@ -30,7 +37,59 @@ function text(id){return $(id).value.trim();}function required(id){const v=text(
 function qty(id){const v=Number(text(id));if(!Number.isSafeInteger(v)||v<1||v>10000)throw Error('Quantity must be a whole number from 1 to 10,000.');return v;}
 function amount(id){if(!/^\d+(\.\d{1,2})?$/.test(text(id)))throw Error('Enter a valid amount with no more than two decimal places.');const v=Math.round(Number(text(id))*100);if(v>100000000)throw Error('Amount is too large.');return v;}
 function prices(unit,q,delivery,protect){if(!Number.isSafeInteger(unit)||unit<0||!Number.isSafeInteger(q)||q<1)throw Error('Invalid price or quantity.');const base=unit*q,protection=staingard(base);if(protect&&protection===null)throw Error('Staingard rate for furniture of £20,000 or more needs confirmation.');return {base,delivered:base+6900,protected:protection===null?null:base+6900+protection,protection,total:base+((delivery||protect)?6900:0)+(protect?protection:0)};}
-function calculate(){try{const result=prices(amount('unit'),qty('quantity'),$('delivery').checked,$('protect').checked);$('delivered').textContent=money(result.delivered);$('protected').textContent=result.protected===null?'Ask for a price':money(result.protected);$('staingard').textContent=result.protection===null?'Ask for a price':money(result.protection);$('extras').textContent=money(result.total-result.base);$('total').textContent=money(result.total);$('status').textContent='';return result;}catch(e){$('total').textContent='Check entries';$('status').textContent=e.message;return null;}}
+function calculate(){
+ try{
+  const base=basket.reduce((sum,line)=>sum+line.unit*line.quantity,0);
+  const result=basket.length?prices(base,1,$('delivery').checked,$('protect').checked):{base:0,delivered:0,protected:0,protection:0,total:0};
+  $('delivered').textContent=money(result.delivered);
+  $('protected').textContent=result.protected===null?'Ask for a price':money(result.protected);
+  $('staingard').textContent=result.protection===null?'Ask for a price':money(result.protection);
+  $('extras').textContent=money(result.total-result.base);
+  $('total').textContent=money(result.total);
+  $('totalNote').textContent=basket.length?basket.length+' added line item'+(basket.length===1?'':'s')+' · Combined order pricing; delivery is charged once.':'Add items to calculate a combined quotation.';
+  return result;
+ }catch(e){
+  $('total').textContent='Check entries';
+  $('status').textContent=e.message;
+  return null;
+ }
+}
+function drawBasket(){
+ const body=$('basketRows');body.replaceChildren();
+ $('itemCount').textContent='('+basket.length+')';
+ $('emptyItems').hidden=basket.length>0;
+ for(const [index,line] of basket.entries()){
+  const tr=document.createElement('tr');
+  const desc=document.createElement('td'),name=document.createElement('strong'),spec=document.createElement('small');
+  name.textContent=line.model;spec.textContent=line.spec;
+  desc.append(name,spec);
+  const qtyCell=document.createElement('td');qtyCell.textContent=String(line.quantity);
+  const totalCell=document.createElement('td');totalCell.textContent=money(line.unit*line.quantity);
+  const action=document.createElement('td'),remove=document.createElement('button');
+  remove.type='button';remove.className='remove-item';remove.textContent='Remove';
+  remove.setAttribute('aria-label','Remove '+line.model+' from order');
+  remove.onclick=()=>{
+   basket.splice(index,1);persistBasket();drawBasket();calculate();
+   $('status').textContent='Item removed from the quotation.';
+  };
+  action.append(remove);tr.append(desc,qtyCell,totalCell,action);body.append(tr);
+ }
+}
+$('addItem').onclick=()=>{
+ try{
+  if(basket.length>=100)throw Error('This quotation already has 100 item lines.');
+  const key=text('range'),r=ranges[key],product=r?.items[Number(text('catalogue'))],grade=text('band');
+  if(!r||!product)throw Error('Choose a valid range and item.');
+  const quantity=qty('quantity'),unit=amount('unit');
+  if(unit===0)throw Error('Enter a positive retail price before adding the item.');
+  const line={id:crypto.randomUUID(),range:key,model:required('model'),spec:required('spec'),
+   item:product.name,grade,feet:text('feet'),fabric:text('fabric'),colour:text('colour'),
+   source:r.source,quantity,unit};
+  basket.push(line);persistBasket();drawBasket();calculate();
+  $('quantity').value='1';
+  $('status').textContent=line.model+' added. Choose another range or item and press Add item to order again.';
+ }catch(e){$('status').textContent=e.message;}
+};
 function options(id,items){$(id).replaceChildren(...items.map(([value,label])=>new Option(label,value)));}
 const allRangeEntries=Object.entries(ranges).sort((a,b)=>a[1].name.localeCompare(b[1].name,'en-GB'));
 const duplicateRangeNames=Object.values(ranges).reduce((m,r)=>(m.set(r.name.toLowerCase(),(m.get(r.name.toLowerCase())||0)+1),m),new Map());
@@ -73,8 +132,46 @@ for(const k of ['unit','quantity','delivery','protect'])$(k).addEventListener('i
 document.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x===b));['sales','stock','care','settings'].forEach(k=>$(k).classList.toggle('hidden',k!==b.dataset.page));document.querySelector('.heading h2').textContent={sales:'Sales dashboard',stock:'Warehouse',care:'Customer care',settings:'Your workspace'}[b.dataset.page];});
 function table(id,rows,fields,click){$(id).replaceChildren();for(const r of rows){const tr=document.createElement('tr');for(const field of fields){const td=document.createElement('td');td.textContent=typeof field==='function'?field(r):r[field]??'';tr.append(td);}if(click){tr.className='click-row';tr.tabIndex=0;tr.onclick=()=>click(r);tr.onkeydown=e=>{if(e.key==='Enter')click(r);};}$(id).append(tr);}}
 function draw(){table('quotes',data.quotes,['id','customer','model',q=>money(q.total)],detail);table('orders',data.orders,['id','customer','model',q=>money(q.total)]);table('receipts',data.receipts,['po','sku','quantity','bay','condition']);table('issues',data.issues,['ref','assignee','issue']);table('expected',data.pos,['po','sku',p=>p.due||'Not confirmed',p=>p.quantity-data.receipts.filter(r=>r.po===p.po&&r.sku===p.sku).reduce((n,r)=>n+r.quantity,0)]);}
-$('saveQuote').onclick=()=>mutate(next=>{const p=calculate();if(!p)throw Error('Correct the price entries before saving.');if(amount('unit')===0)throw Error('Enter a positive price.');next.quotes.unshift({id:'Q-'+crypto.randomUUID().slice(0,8).toUpperCase(),customer:required('customer'),model:required('model'),spec:required('spec'),range:text('range'),grade:text('band'),feet:text('feet'),fabric:text('fabric'),colour:text('colour'),source:ranges[text('range')].source,quantity:qty('quantity'),unit:amount('unit'),withProtection:$('protect').checked,withDelivery:$('delivery').checked,notes:text('notes'),...p,status:'Open',created:new Date().toISOString()});},'status','Quotation saved on this device.');
-function detail(q){selectedQuote=q.id;const box=$('detailContent');box.replaceChildren();for(const [tag,value] of [['h2',q.id+' · '+q.customer],['p',q.quantity+' × '+q.model],['p',q.spec],['p','Furniture: '+money(q.base)],['p','With delivery: '+money(q.delivered)],['p','With delivery + Staingard: '+(q.protected===null?'Not priced':money(q.protected))],['h2','Selected total: '+money(q.total)],['p',q.notes],['p','Status: '+q.status]]){const el=document.createElement(tag);el.textContent=value;box.append(el);}$('convert').hidden=q.status!=='Open';$('detail').showModal();}
+$('saveQuote').onclick=()=>{
+ try{
+  if(!basket.length)throw Error('Add at least one item to the quotation first.');
+  const p=calculate();if(!p)throw Error('Correct the price entries before saving.');
+  const customer=required('customer'),lines=structuredClone(basket),first=lines[0];
+  const summary=lines.length===1?first.model:lines.length+' items · '+lines.slice(0,2).map(l=>l.model).join(' + ')+(lines.length>2?'…':'');
+  const next=structuredClone(data);
+  next.quotes.unshift({
+   id:'Q-'+crypto.randomUUID().slice(0,8).toUpperCase(),customer,model:summary,
+   spec:lines.length===1?first.spec:'Multiple furniture lines; see item details',
+   range:first.range,grade:first.grade,feet:first.feet,fabric:first.fabric,colour:first.colour,
+   source:[...new Set(lines.map(l=>l.source))].join(' | '),quantity:lines.reduce((n,l)=>n+l.quantity,0),
+   unit:lines.length===1?first.unit:null,lines,
+   withProtection:$('protect').checked,withDelivery:$('delivery').checked,
+   notes:text('notes'),...p,status:'Open',created:new Date().toISOString()
+  });
+  if(commit(next)){
+   basket=[];persistBasket();drawBasket();calculate();
+   $('status').textContent='Quotation saved with '+lines.length+' item line'+(lines.length===1?'':'s')+'. You can review it below and accept it as one customer order.';
+  }
+ }catch(e){$('status').textContent=e.message;}
+};
+function detail(q){
+ selectedQuote=q.id;const box=$('detailContent');box.replaceChildren();
+ const append=(tag,value)=>{const el=document.createElement(tag);el.textContent=value??'';box.append(el);};
+ append('h2',q.id+' · '+q.customer);
+ const lines=Array.isArray(q.lines)&&q.lines.length?q.lines:[{model:q.model,spec:q.spec,quantity:q.quantity,unit:q.unit}];
+ for(const [index,line] of lines.entries()){
+  append('h3',(index+1)+'. '+line.model);
+  append('p',line.spec);
+  append('p',line.quantity+' × '+money(line.unit)+' = '+money(line.quantity*line.unit));
+ }
+ append('p','Furniture subtotal: '+money(q.base));
+ append('p','Furniture + delivery: '+money(q.delivered));
+ append('p','Furniture + delivery + Staingard: '+(q.protected===null?'Not priced':money(q.protected)));
+ append('h2','Selected total: '+money(q.total));
+ if(q.notes)append('p','Notes: '+q.notes);
+ append('p','Status: '+q.status);
+ $('convert').hidden=q.status!=='Open';$('detail').showModal();
+}
 $('closeDetail').onclick=()=>$('detail').close();$('print').onclick=()=>window.print();$('convert').onclick=()=>{const next=structuredClone(data),q=next.quotes.find(q=>q.id===selectedQuote);if(!q||q.status!=='Open')return;q.status='Converted';next.orders.unshift({...q,id:'SO-'+crypto.randomUUID().slice(0,8).toUpperCase(),quoteId:q.id,status:'Awaiting stock'});if(commit(next))$('detail').close();};
 $('recordPO').onclick=()=>mutate(next=>{const po=required('expectedPO'),sku=required('expectedSKU');if(next.pos.some(p=>p.po===po&&p.sku===sku))throw Error('That PO line is already recorded.');next.pos.push({po,sku,quantity:qty('expectedQty'),due:text('expectedDate')});},'stockStatus','Existing PO recorded. No supplier order was sent.');
 $('receive').onclick=()=>mutate(next=>{const po=required('po'),sku=required('sku'),ref=required('receiptRef'),bay=required('bay'),quantity=qty('received');const line=next.pos.find(p=>p.po===po&&p.sku===sku);if(!line)throw Error('Record the existing PO and matching SKU first.');if(next.receipts.some(r=>r.ref===ref))throw Error('This receipt reference has already been booked in.');const received=next.receipts.filter(r=>r.po===po&&r.sku===sku).reduce((n,r)=>n+r.quantity,0);if(received+quantity>line.quantity)throw Error('Receipt exceeds the quantity remaining on this PO.');next.receipts.unshift({po,sku,ref,bay,quantity,condition:text('condition'),at:new Date().toISOString()});},'stockStatus','Receipt saved. Expected quantity updated.');
@@ -82,4 +179,4 @@ const management=['Refund request','Repeated repair','Staff complaint','Safety c
 $('logIssue').onclick=()=>mutate(next=>{next.issues.unshift({ref:required('ref'),issue:required('issue'),category:text('category'),assignee:management.includes(text('category'))?'Management':text('assignee'),at:new Date().toISOString()});},'careStatus','Concern recorded on this device. No notification has been sent.');
 $('export').onclick=()=>{const blob=new Blob([JSON.stringify({version:2,exportedAt:new Date().toISOString(),...data},null,2)],{type:'application/json'}),u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download='john-doe-pilot-records.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);};
 let prompt;window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();prompt=e;$('install').hidden=false;});$('install').onclick=async()=>{if(prompt){await prompt.prompt();prompt=null;$('install').hidden=true;}};
-if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});draw();calculate();
+if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});draw();drawBasket();calculate();
