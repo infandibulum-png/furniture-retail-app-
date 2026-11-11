@@ -7,7 +7,9 @@ Android-friendly pilot of sales quotes, supplier specifications, existing PO rec
 - Existing Marlesford catalogue retains 13 core configurations and supplier wording for Matteo.
 - Ranges whose item/grade prices cannot be reliably matched are selectable but require a staff-confirmed retail amount; supplier costs and historic stock counts are not published.
 - Quotation totals, £69 delivery and variable Staingard Protect 6 totals based only on furniture price; selectable ranges include searchable upholstery and cabinet-furniture collections. Unknown protection stays unpriced.
-- Quote review, print/PDF and conversion to customer order.
+- Multi-item quotation basket: add different ranges, products, grades, finishes and quantities to one quote; remove any line before saving; draft lines survive a refresh on the same browser.
+- Order-wide £69 delivery is charged once and Staingard is calculated on the combined furniture subtotal.
+- Itemised quote review, print/PDF and conversion to a single customer order, with each original item specification retained and reviewable on the order.
 - Record existing PO lines, expected dates, partial unit receipts, duplicate delivery-note reference and excess quantity rejection, bay and condition.
 - Management routing for safety, staff, refund and repeat-repair concerns.
 - JSON export, responsive layout and installable web-app manifest.
