@@ -75,20 +75,44 @@ function drawBasket(){
   action.append(remove);tr.append(desc,qtyCell,totalCell,action);body.append(tr);
  }
 }
+function addFeedback(message,isError=false){
+ const node=$('addItemStatus');
+ node.textContent=message;
+ node.classList.toggle('error',isError);
+}
 $('addItem').onclick=()=>{
  try{
+  addFeedback('');
   if(basket.length>=100)throw Error('This quotation already has 100 item lines.');
   const key=text('range'),r=ranges[key],product=r?.items[Number(text('catalogue'))],grade=text('band');
   if(!r||!product)throw Error('Choose a valid range and item.');
-  const quantity=qty('quantity'),unit=amount('unit');
-  if(unit===0)throw Error('Enter a positive retail price before adding the item.');
+  const quantity=qty('quantity');
+  if(text('unit')===''){
+   $('unit').focus();
+   throw Error('No price is available for this configuration. Enter the confirmed unit retail price before adding it.');
+  }
+  const unit=amount('unit');
+  if(unit===0){
+   $('unit').focus();
+   throw Error('Enter a positive retail price before adding the item.');
+  }
   const line={id:crypto.randomUUID(),range:key,model:required('model'),spec:required('spec'),
    item:product.name,grade,feet:text('feet'),fabric:text('fabric'),colour:text('colour'),
    source:r.source,quantity,unit};
-  basket.push(line);persistBasket();drawBasket();calculate();
+  basket.push(line);
+  persistBasket();
+  drawBasket();
+  calculate();
   $('quantity').value='1';
-  $('status').textContent=line.model+' added. Choose another range or item and press Add item to order again.';
- }catch(e){$('status').textContent=e.message;}
+  const message=line.model+' added to order · '+basket.length+' item line'+(basket.length===1?'':'s')+' in basket.';
+  addFeedback(message);
+  $('status').textContent=message;
+  $('basketRows').scrollIntoView?.({behavior:'smooth',block:'nearest'});
+ }catch(e){
+  const message=e?.message||'Could not add the item. Please check the details above.';
+  addFeedback(message,true);
+  $('status').textContent=message;
+ }
 };
 function options(id,items){$(id).replaceChildren(...items.map(([value,label])=>new Option(label,value)));}
 const allRangeEntries=Object.entries(ranges).sort((a,b)=>a[1].name.localeCompare(b[1].name,'en-GB'));
@@ -179,4 +203,4 @@ const management=['Refund request','Repeated repair','Staff complaint','Safety c
 $('logIssue').onclick=()=>mutate(next=>{next.issues.unshift({ref:required('ref'),issue:required('issue'),category:text('category'),assignee:management.includes(text('category'))?'Management':text('assignee'),at:new Date().toISOString()});},'careStatus','Concern recorded on this device. No notification has been sent.');
 $('export').onclick=()=>{const blob=new Blob([JSON.stringify({version:2,exportedAt:new Date().toISOString(),...data},null,2)],{type:'application/json'}),u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download='john-doe-pilot-records.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000);};
 let prompt;window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();prompt=e;$('install').hidden=false;});$('install').onclick=async()=>{if(prompt){await prompt.prompt();prompt=null;$('install').hidden=true;}};
-if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});draw();drawBasket();calculate();
+if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});draw();drawBasket();calculate();$('basketStartup').hidden=true;
