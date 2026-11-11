@@ -17,7 +17,6 @@ ranges.marlesford.items.push({name:'Swivel Chair',code:'Swivel Chair',grades:['P
 // The care plan is for furniture; leave loose scatter-cushion accessories out of the quote selector.
 for(const key of ['snape','snapeHigh'])ranges[key].items=ranges[key].items.filter(p=>!p.name.startsWith('Scatter'));
 ranges.sandringham.items.find(p=>p.name==='High Back Chair').code='High Back Chair (Samantha High Back)';
-Object.assign(ranges,window.jdAdditionalRanges||{});
 const marlesfordColours={C:['Brew','Chalk','Deep Moss','Fero','Hollow'],D:['Ash','Black','Bournville','Clay','Dove','Espresso','Ivory','Olive','Sand'],E:['Black','Cacao','Charcoal','Dove Grey','Indigo','Ink','Khaki','Mink','Mist','Mocha','Olive','Oyster','Pebble','Snow']};
 // The supplied care-plan table applies to furniture value only, before the delivery charge.
 const tiers=[[0,49999,5000],[50000,99999,15000],[100000,149999,17500],[150000,199999,20000],[200000,299999,25000],[300000,399999,27500],[400000,499999,30000],[500000,999999,32500],[1000000,1999999,37500]];
