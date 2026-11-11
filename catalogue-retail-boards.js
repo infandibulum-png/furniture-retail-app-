@@ -35,7 +35,7 @@ for(const sheet of sheets){
   if(result[key])throw Error('Duplicate board key: '+key);
   result[key]={
    name,supplier:'Showroom price board',source:'John Doe retail board · '+sheet.src,
-   feet:['Not specified on price board'],grades,
+   feet:['Light','Dark'],grades,
    items:Array.from(items.values()),
    priceVerified:true,
    note:sheet.name==='Charsfield'?'Board illustrates standard and pillow backs but lists one price for both.':''
