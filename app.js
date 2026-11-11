@@ -36,7 +36,7 @@ const allRangeEntries=Object.entries(ranges).sort((a,b)=>a[1].name.localeCompare
 const duplicateRangeNames=Object.values(ranges).reduce((m,r)=>(m.set(r.name.toLowerCase(),(m.get(r.name.toLowerCase())||0)+1),m),new Map());
 let lastSelection='';
 function refreshRangeOptions(){
- const query=$('rangeSearch').value.trim().toLowerCase(),previous=$('range').value;
+ const query=$('rangeSearch').value.trim().toLowerCase(),previous=$('range').value||'marlesford';
  const matches=allRangeEntries.filter(([key,r])=>r.name.toLowerCase().includes(query)||r.supplier.toLowerCase().includes(query));
  options('range',matches.length?matches.map(([key,r])=>[key,duplicateRangeNames.get(r.name.toLowerCase())>1?r.name+' — '+r.supplier:r.name]):[['','No matching ranges']]);
  $('range').disabled=!matches.length;
