@@ -1,0 +1,1508 @@
+{
+  "brand": "Celebrity Furniture",
+  "source_page": "https://www.suites2u.co.uk/swatch-samples",
+  "performance_plus_confirmation": "https://cdn.asp.events/CLIENT_Clarion__276DEED2_5056_B733_833D26F38F26C456/sites/JFS-2024/media/libraries/exhibitor-pdf-brochures/170732-Celebrity-Brochure-2025-LR.pdf",
+  "extracted_date": "2026-11-16",
+  "source_scope": "Listed Suites2U Celebrity swatch samples, not a verified live manufacturer-stock feed",
+  "categories": {
+    "Fabric": 87,
+    "Aquaclean": 30,
+    "Performance +": 16,
+    "Leather": 36
+  },
+  "total_options": 169,
+  "price_mapping_note": "Categories match the existing Celebrity retail-board grade keys: Fabric, Aquaclean, Performance +, Leather. Leather subgroups are retailer classifications, not separate pricing keys in existing boards.",
+  "coverage_note": "Per-model covering availability beyond the two leather restrictions has not been confirmed; verify against current manufacturer swatches before ordering.",
+  "normalisations": "Derwnt Fawn corrected to Derwent Fawn using the retailer's product swatch picker; Corisca Rose preserved as written on source page.",
+  "coverings": [
+    {
+      "id": "celebrity-arden-ash",
+      "name": "Arden Ash",
+      "collection": "Arden",
+      "colour": "Ash",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-arden-flint",
+      "name": "Arden Flint",
+      "collection": "Arden",
+      "colour": "Flint",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-arden-mocha",
+      "name": "Arden Mocha",
+      "collection": "Arden",
+      "colour": "Mocha",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-arden-oyster",
+      "name": "Arden Oyster",
+      "collection": "Arden",
+      "colour": "Oyster",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-bliss-moss",
+      "name": "Bliss Moss",
+      "collection": "Bliss",
+      "colour": "Moss",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-bliss-natural",
+      "name": "Bliss Natural",
+      "collection": "Bliss",
+      "colour": "Natural",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-buckley-chocolate",
+      "name": "Buckley Chocolate",
+      "collection": "Buckley",
+      "colour": "Chocolate",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-buckley-claret",
+      "name": "Buckley Claret",
+      "collection": "Buckley",
+      "colour": "Claret",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-buckley-heather",
+      "name": "Buckley Heather",
+      "collection": "Buckley",
+      "colour": "Heather",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-buckley-slate",
+      "name": "Buckley Slate",
+      "collection": "Buckley",
+      "colour": "Slate",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-byron-cappuccino",
+      "name": "Byron Cappuccino",
+      "collection": "Byron",
+      "colour": "Cappuccino",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-byron-espresso",
+      "name": "Byron Espresso",
+      "collection": "Byron",
+      "colour": "Espresso",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-byron-mocha",
+      "name": "Byron Mocha",
+      "collection": "Byron",
+      "colour": "Mocha",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-corisca-rose",
+      "name": "Corisca Rose",
+      "collection": "Corisca",
+      "colour": "Rose",
+      "category": "Fabric",
+      "pricing_group": "Fabric",
+      "name_verification_note": "Retained as displayed on retailer swatch page; not independently corrected."
+    },
+    {
+      "id": "celebrity-dalby-moss",
+      "name": "Dalby Moss",
+      "collection": "Dalby",
+      "colour": "Moss",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-dalby-natural",
+      "name": "Dalby Natural",
+      "collection": "Dalby",
+      "colour": "Natural",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-dalby-stone",
+      "name": "Dalby Stone",
+      "collection": "Dalby",
+      "colour": "Stone",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-dune-chestnut",
+      "name": "Dune Chestnut",
+      "collection": "Dune",
+      "colour": "Chestnut",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-dune-copper",
+      "name": "Dune Copper",
+      "collection": "Dune",
+      "colour": "Copper",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-dune-dove",
+      "name": "Dune Dove",
+      "collection": "Dune",
+      "colour": "Dove",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-dune-fossil",
+      "name": "Dune Fossil",
+      "collection": "Dune",
+      "colour": "Fossil",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-dune-sage",
+      "name": "Dune Sage",
+      "collection": "Dune",
+      "colour": "Sage",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-dune-taupe",
+      "name": "Dune Taupe",
+      "collection": "Dune",
+      "colour": "Taupe",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-eden-aqua",
+      "name": "Eden Aqua",
+      "collection": "Eden",
+      "colour": "Aqua",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-eden-espresso",
+      "name": "Eden Espresso",
+      "collection": "Eden",
+      "colour": "Espresso",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-eden-mauve",
+      "name": "Eden Mauve",
+      "collection": "Eden",
+      "colour": "Mauve",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-eden-olive",
+      "name": "Eden Olive",
+      "collection": "Eden",
+      "colour": "Olive",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-eden-spice",
+      "name": "Eden Spice",
+      "collection": "Eden",
+      "colour": "Spice",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-elgin-aqua",
+      "name": "Elgin Aqua",
+      "collection": "Elgin",
+      "colour": "Aqua",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-elgin-biscuit",
+      "name": "Elgin Biscuit",
+      "collection": "Elgin",
+      "colour": "Biscuit",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-elgin-chocolate",
+      "name": "Elgin Chocolate",
+      "collection": "Elgin",
+      "colour": "Chocolate",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-elgin-midnight",
+      "name": "Elgin Midnight",
+      "collection": "Elgin",
+      "colour": "Midnight",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-elgin-oyster",
+      "name": "Elgin Oyster",
+      "collection": "Elgin",
+      "colour": "Oyster",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-elgin-storm",
+      "name": "Elgin Storm",
+      "collection": "Elgin",
+      "colour": "Storm",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-hessian-llama",
+      "name": "Hessian Llama",
+      "collection": "Hessian",
+      "colour": "Llama",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-hessian-mocha",
+      "name": "Hessian Mocha",
+      "collection": "Hessian",
+      "colour": "Mocha",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-hessian-steel",
+      "name": "Hessian Steel",
+      "collection": "Hessian",
+      "colour": "Steel",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-iona-aqua",
+      "name": "Iona Aqua",
+      "collection": "Iona",
+      "colour": "Aqua",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-iona-chocolate",
+      "name": "Iona Chocolate",
+      "collection": "Iona",
+      "colour": "Chocolate",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-iona-claret",
+      "name": "Iona Claret",
+      "collection": "Iona",
+      "colour": "Claret",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-iona-haze",
+      "name": "Iona Haze",
+      "collection": "Iona",
+      "colour": "Haze",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-iona-midnight",
+      "name": "Iona Midnight",
+      "collection": "Iona",
+      "colour": "Midnight",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-iona-sage",
+      "name": "Iona Sage",
+      "collection": "Iona",
+      "colour": "Sage",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-iona-slate",
+      "name": "Iona Slate",
+      "collection": "Iona",
+      "colour": "Slate",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-linden-midnight",
+      "name": "Linden Midnight",
+      "collection": "Linden",
+      "colour": "Midnight",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-linden-moss",
+      "name": "Linden Moss",
+      "collection": "Linden",
+      "colour": "Moss",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-linden-natural",
+      "name": "Linden Natural",
+      "collection": "Linden",
+      "colour": "Natural",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-linden-pebble",
+      "name": "Linden Pebble",
+      "collection": "Linden",
+      "colour": "Pebble",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-lucia-camel",
+      "name": "Lucia Camel",
+      "collection": "Lucia",
+      "colour": "Camel",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-luna-fawn",
+      "name": "Luna Fawn",
+      "collection": "Luna",
+      "colour": "Fawn",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-luna-fossil",
+      "name": "Luna Fossil",
+      "collection": "Luna",
+      "colour": "Fossil",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-luna-peacock",
+      "name": "Luna Peacock",
+      "collection": "Luna",
+      "colour": "Peacock",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-luna-silver",
+      "name": "Luna Silver",
+      "collection": "Luna",
+      "colour": "Silver",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-majestic-alpine",
+      "name": "Majestic Alpine",
+      "collection": "Majestic",
+      "colour": "Alpine",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-majestic-fawn",
+      "name": "Majestic Fawn",
+      "collection": "Majestic",
+      "colour": "Fawn",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-majestic-flint",
+      "name": "Majestic Flint",
+      "collection": "Majestic",
+      "colour": "Flint",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-majestic-wheat",
+      "name": "Majestic Wheat",
+      "collection": "Majestic",
+      "colour": "Wheat",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-marble-fossil",
+      "name": "Marble Fossil",
+      "collection": "Marble",
+      "colour": "Fossil",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-marble-haze",
+      "name": "Marble Haze",
+      "collection": "Marble",
+      "colour": "Haze",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-marble-sage",
+      "name": "Marble Sage",
+      "collection": "Marble",
+      "colour": "Sage",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-marble-sand",
+      "name": "Marble Sand",
+      "collection": "Marble",
+      "colour": "Sand",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-marble-spice",
+      "name": "Marble Spice",
+      "collection": "Marble",
+      "colour": "Spice",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-montage-aqua",
+      "name": "Montage Aqua",
+      "collection": "Montage",
+      "colour": "Aqua",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-montage-oatmeal",
+      "name": "Montage Oatmeal",
+      "collection": "Montage",
+      "colour": "Oatmeal",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-montage-pebble",
+      "name": "Montage Pebble",
+      "collection": "Montage",
+      "colour": "Pebble",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-montage-rose",
+      "name": "Montage Rose",
+      "collection": "Montage",
+      "colour": "Rose",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-montage-sage",
+      "name": "Montage Sage",
+      "collection": "Montage",
+      "colour": "Sage",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-mosaic-autumn",
+      "name": "Mosaic Autumn",
+      "collection": "Mosaic",
+      "colour": "Autumn",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-orla-chestnut",
+      "name": "Orla Chestnut",
+      "collection": "Orla",
+      "colour": "Chestnut",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-orla-forest",
+      "name": "Orla Forest",
+      "collection": "Orla",
+      "colour": "Forest",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-orla-granite",
+      "name": "Orla Granite",
+      "collection": "Orla",
+      "colour": "Granite",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-orla-marble",
+      "name": "Orla Marble",
+      "collection": "Orla",
+      "colour": "Marble",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-orla-mushroom",
+      "name": "Orla Mushroom",
+      "collection": "Orla",
+      "colour": "Mushroom",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-orla-spice",
+      "name": "Orla Spice",
+      "collection": "Orla",
+      "colour": "Spice",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-soulful-aqua",
+      "name": "Soulful Aqua",
+      "collection": "Soulful",
+      "colour": "Aqua",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-soulful-cocoa",
+      "name": "Soulful Cocoa",
+      "collection": "Soulful",
+      "colour": "Cocoa",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-soulful-forest",
+      "name": "Soulful Forest",
+      "collection": "Soulful",
+      "colour": "Forest",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-soulful-mink",
+      "name": "Soulful Mink",
+      "collection": "Soulful",
+      "colour": "Mink",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-soulful-slate",
+      "name": "Soulful Slate",
+      "collection": "Soulful",
+      "colour": "Slate",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-tidal-braemar",
+      "name": "Tidal Braemar",
+      "collection": "Tidal",
+      "colour": "Braemar",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-tidal-sand",
+      "name": "Tidal Sand",
+      "collection": "Tidal",
+      "colour": "Sand",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-tidal-slate",
+      "name": "Tidal Slate",
+      "collection": "Tidal",
+      "colour": "Slate",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-weave-charcoal",
+      "name": "Weave Charcoal",
+      "collection": "Weave",
+      "colour": "Charcoal",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-weave-sage",
+      "name": "Weave Sage",
+      "collection": "Weave",
+      "colour": "Sage",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-weave-sapphire",
+      "name": "Weave Sapphire",
+      "collection": "Weave",
+      "colour": "Sapphire",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-weave-silver",
+      "name": "Weave Silver",
+      "collection": "Weave",
+      "colour": "Silver",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-weave-teal",
+      "name": "Weave Teal",
+      "collection": "Weave",
+      "colour": "Teal",
+      "category": "Fabric",
+      "pricing_group": "Fabric"
+    },
+    {
+      "id": "celebrity-alpine-bark",
+      "name": "Alpine Bark",
+      "collection": "Alpine",
+      "colour": "Bark",
+      "category": "Aquaclean",
+      "pricing_group": "Aquaclean",
+      "aquaclean_confirmed": true
+    },
+    {
+      "id": "celebrity-alpine-granite",
+      "name": "Alpine Granite",
+      "collection": "Alpine",
+      "colour": "Granite",
+      "category": "Aquaclean",
+      "pricing_group": "Aquaclean",
+      "aquaclean_confirmed": true
+    },
+    {
+      "id": "celebrity-alpine-limestone",
+      "name": "Alpine Limestone",
+      "collection": "Alpine",
+      "colour": "Limestone",
+      "category": "Aquaclean",
+      "pricing_group": "Aquaclean",
+      "aquaclean_confirmed": true
+    },
+    {
+      "id": "celebrity-alpine-marble",
+      "name": "Alpine Marble",
+      "collection": "Alpine",
+      "colour": "Marble",
+      "category": "Aquaclean",
+      "pricing_group": "Aquaclean",
+      "aquaclean_confirmed": true
+    },
+    {
+      "id": "celebrity-alpine-rainbow",
+      "name": "Alpine Rainbow",
+      "collection": "Alpine",
+      "colour": "Rainbow",
+      "category": "Aquaclean",
+      "pricing_group": "Aquaclean",
+      "aquaclean_confirmed": true
+    },
+    {
+      "id": "celebrity-alpine-russet",
+      "name": "Alpine Russet",
+      "collection": "Alpine",
+      "colour": "Russet",
+      "category": "Aquaclean",
+      "pricing_group": "Aquaclean",
+      "aquaclean_confirmed": true
+    },
+    {
+      "id": "celebrity-aspen-forest",
+      "name": "Aspen Forest",
+      "collection": "Aspen",
+      "colour": "Forest",
+      "category": "Aquaclean",
+      "pricing_group": "Aquaclean",
+      "aquaclean_confirmed": true
+    },
+    {
+      "id": "celebrity-aspen-graphite",
+      "name": "Aspen Graphite",
+      "collection": "Aspen",
+      "colour": "Graphite",
+      "category": "Aquaclean",
+      "pricing_group": "Aquaclean",
+      "aquaclean_confirmed": true
+    },
+    {
+      "id": "celebrity-aspen-grey",
+      "name": "Aspen Grey",
+      "collection": "Aspen",
+      "colour": "Grey",
+      "category": "Aquaclean",
+      "pricing_group": "Aquaclean",
+      "aquaclean_confirmed": true
+    },
+    {
+      "id": "celebrity-aspen-midnight",
+      "name": "Aspen Midnight",
+      "collection": "Aspen",
+      "colour": "Midnight",
+      "category": "Aquaclean",
+      "pricing_group": "Aquaclean",
+      "aquaclean_confirmed": true
+    },
+    {
+      "id": "celebrity-aspen-oyster",
+      "name": "Aspen Oyster",
+      "collection": "Aspen",
+      "colour": "Oyster",
+      "category": "Aquaclean",
+      "pricing_group": "Aquaclean",
+      "aquaclean_confirmed": true
+    },
+    {
+      "id": "celebrity-aspen-stone",
+      "name": "Aspen Stone",
+      "collection": "Aspen",
+      "colour": "Stone",
+      "category": "Aquaclean",
+      "pricing_group": "Aquaclean",
+      "aquaclean_confirmed": true
+    },
+    {
+      "id": "celebrity-bison-moss",
+      "name": "Bison Moss",
+      "collection": "Bison",
+      "colour": "Moss",
+      "category": "Aquaclean",
+      "pricing_group": "Aquaclean",
+      "aquaclean_confirmed": true
+    },
+    {
+      "id": "celebrity-bison-saddle",
+      "name": "Bison Saddle",
+      "collection": "Bison",
+      "colour": "Saddle",
+      "category": "Aquaclean",
+      "pricing_group": "Aquaclean",
+      "aquaclean_confirmed": true
+    },
+    {
+      "id": "celebrity-bison-silver",
+      "name": "Bison Silver",
+      "collection": "Bison",
+      "colour": "Silver",
+      "category": "Aquaclean",
+      "pricing_group": "Aquaclean",
+      "aquaclean_confirmed": true
+    },
+    {
+      "id": "celebrity-bison-storm",
+      "name": "Bison Storm",
+      "collection": "Bison",
+      "colour": "Storm",
+      "category": "Aquaclean",
+      "pricing_group": "Aquaclean",
+      "aquaclean_confirmed": true
+    },
+    {
+      "id": "celebrity-bison-taupe",
+      "name": "Bison Taupe",
+      "collection": "Bison",
+      "colour": "Taupe",
+      "category": "Aquaclean",
+      "pricing_group": "Aquaclean",
+      "aquaclean_confirmed": true
+    },
+    {
+      "id": "celebrity-bison-toffee",
+      "name": "Bison Toffee",
+      "collection": "Bison",
+      "colour": "Toffee",
+      "category": "Aquaclean",
+      "pricing_group": "Aquaclean",
+      "aquaclean_confirmed": true
+    },
+    {
+      "id": "celebrity-filey-charcoal",
+      "name": "Filey Charcoal",
+      "collection": "Filey",
+      "colour": "Charcoal",
+      "category": "Aquaclean",
+      "pricing_group": "Aquaclean",
+      "aquaclean_confirmed": true
+    },
+    {
+      "id": "celebrity-filey-chocolate",
+      "name": "Filey Chocolate",
+      "collection": "Filey",
+      "colour": "Chocolate",
+      "category": "Aquaclean",
+      "pricing_group": "Aquaclean",
+      "aquaclean_confirmed": true
+    },
+    {
+      "id": "celebrity-filey-cream",
+      "name": "Filey Cream",
+      "collection": "Filey",
+      "colour": "Cream",
+      "category": "Aquaclean",
+      "pricing_group": "Aquaclean",
+      "aquaclean_confirmed": true
+    },
+    {
+      "id": "celebrity-filey-jade",
+      "name": "Filey Jade",
+      "collection": "Filey",
+      "colour": "Jade",
+      "category": "Aquaclean",
+      "pricing_group": "Aquaclean",
+      "aquaclean_confirmed": true
+    },
+    {
+      "id": "celebrity-filey-natural",
+      "name": "Filey Natural",
+      "collection": "Filey",
+      "colour": "Natural",
+      "category": "Aquaclean",
+      "pricing_group": "Aquaclean",
+      "aquaclean_confirmed": true
+    },
+    {
+      "id": "celebrity-filey-ruby",
+      "name": "Filey Ruby",
+      "collection": "Filey",
+      "colour": "Ruby",
+      "category": "Aquaclean",
+      "pricing_group": "Aquaclean",
+      "aquaclean_confirmed": true
+    },
+    {
+      "id": "celebrity-soul-fawn",
+      "name": "Soul Fawn",
+      "collection": "Soul",
+      "colour": "Fawn",
+      "category": "Aquaclean",
+      "pricing_group": "Aquaclean",
+      "aquaclean_confirmed": true
+    },
+    {
+      "id": "celebrity-soul-haze",
+      "name": "Soul Haze",
+      "collection": "Soul",
+      "colour": "Haze",
+      "category": "Aquaclean",
+      "pricing_group": "Aquaclean",
+      "aquaclean_confirmed": true
+    },
+    {
+      "id": "celebrity-soul-juniper",
+      "name": "Soul Juniper",
+      "collection": "Soul",
+      "colour": "Juniper",
+      "category": "Aquaclean",
+      "pricing_group": "Aquaclean",
+      "aquaclean_confirmed": true
+    },
+    {
+      "id": "celebrity-soul-midnight",
+      "name": "Soul Midnight",
+      "collection": "Soul",
+      "colour": "Midnight",
+      "category": "Aquaclean",
+      "pricing_group": "Aquaclean",
+      "aquaclean_confirmed": true
+    },
+    {
+      "id": "celebrity-soul-oyster",
+      "name": "Soul Oyster",
+      "collection": "Soul",
+      "colour": "Oyster",
+      "category": "Aquaclean",
+      "pricing_group": "Aquaclean",
+      "aquaclean_confirmed": true
+    },
+    {
+      "id": "celebrity-soul-slate",
+      "name": "Soul Slate",
+      "collection": "Soul",
+      "colour": "Slate",
+      "category": "Aquaclean",
+      "pricing_group": "Aquaclean",
+      "aquaclean_confirmed": true
+    },
+    {
+      "id": "celebrity-avon-charcoal",
+      "name": "Avon Charcoal",
+      "collection": "Avon",
+      "colour": "Charcoal",
+      "category": "Performance +",
+      "pricing_group": "Performance +",
+      "performance_plus_confirmed": true,
+      "martindale_cycles": 90000
+    },
+    {
+      "id": "celebrity-avon-midnight",
+      "name": "Avon Midnight",
+      "collection": "Avon",
+      "colour": "Midnight",
+      "category": "Performance +",
+      "pricing_group": "Performance +",
+      "performance_plus_confirmed": true,
+      "martindale_cycles": 90000
+    },
+    {
+      "id": "celebrity-avon-oyster",
+      "name": "Avon Oyster",
+      "collection": "Avon",
+      "colour": "Oyster",
+      "category": "Performance +",
+      "pricing_group": "Performance +",
+      "performance_plus_confirmed": true,
+      "martindale_cycles": 90000
+    },
+    {
+      "id": "celebrity-avon-sage",
+      "name": "Avon Sage",
+      "collection": "Avon",
+      "colour": "Sage",
+      "category": "Performance +",
+      "pricing_group": "Performance +",
+      "performance_plus_confirmed": true,
+      "martindale_cycles": 90000
+    },
+    {
+      "id": "celebrity-avon-silver",
+      "name": "Avon Silver",
+      "collection": "Avon",
+      "colour": "Silver",
+      "category": "Performance +",
+      "pricing_group": "Performance +",
+      "performance_plus_confirmed": true,
+      "martindale_cycles": 90000
+    },
+    {
+      "id": "celebrity-derwent-fawn",
+      "name": "Derwent Fawn",
+      "collection": "Derwent",
+      "colour": "Fawn",
+      "category": "Performance +",
+      "pricing_group": "Performance +",
+      "performance_plus_confirmed": true,
+      "martindale_cycles": 50000,
+      "source_list_name": "Derwnt Fawn",
+      "name_normalisation_note": "Retail swatch listing omits the second 'e'; retailer product picker and manufacturer use Derwent."
+    },
+    {
+      "id": "celebrity-derwent-grey",
+      "name": "Derwent Grey",
+      "collection": "Derwent",
+      "colour": "Grey",
+      "category": "Performance +",
+      "pricing_group": "Performance +",
+      "performance_plus_confirmed": true,
+      "martindale_cycles": 50000
+    },
+    {
+      "id": "celebrity-derwent-hunter",
+      "name": "Derwent Hunter",
+      "collection": "Derwent",
+      "colour": "Hunter",
+      "category": "Performance +",
+      "pricing_group": "Performance +",
+      "performance_plus_confirmed": true,
+      "martindale_cycles": 50000
+    },
+    {
+      "id": "celebrity-derwent-midnight",
+      "name": "Derwent Midnight",
+      "collection": "Derwent",
+      "colour": "Midnight",
+      "category": "Performance +",
+      "pricing_group": "Performance +",
+      "performance_plus_confirmed": true,
+      "martindale_cycles": 50000
+    },
+    {
+      "id": "celebrity-derwent-slate",
+      "name": "Derwent Slate",
+      "collection": "Derwent",
+      "colour": "Slate",
+      "category": "Performance +",
+      "pricing_group": "Performance +",
+      "performance_plus_confirmed": true,
+      "martindale_cycles": 50000
+    },
+    {
+      "id": "celebrity-whyburn-aqua",
+      "name": "Whyburn Aqua",
+      "collection": "Whyburn",
+      "colour": "Aqua",
+      "category": "Performance +",
+      "pricing_group": "Performance +",
+      "performance_plus_confirmed": true,
+      "martindale_cycles": 40000
+    },
+    {
+      "id": "celebrity-whyburn-brunette",
+      "name": "Whyburn Brunette",
+      "collection": "Whyburn",
+      "colour": "Brunette",
+      "category": "Performance +",
+      "pricing_group": "Performance +",
+      "performance_plus_confirmed": true,
+      "martindale_cycles": 40000
+    },
+    {
+      "id": "celebrity-whyburn-caramel",
+      "name": "Whyburn Caramel",
+      "collection": "Whyburn",
+      "colour": "Caramel",
+      "category": "Performance +",
+      "pricing_group": "Performance +",
+      "performance_plus_confirmed": true,
+      "martindale_cycles": 40000
+    },
+    {
+      "id": "celebrity-whyburn-forest",
+      "name": "Whyburn Forest",
+      "collection": "Whyburn",
+      "colour": "Forest",
+      "category": "Performance +",
+      "pricing_group": "Performance +",
+      "performance_plus_confirmed": true,
+      "martindale_cycles": 40000
+    },
+    {
+      "id": "celebrity-whyburn-ivory",
+      "name": "Whyburn Ivory",
+      "collection": "Whyburn",
+      "colour": "Ivory",
+      "category": "Performance +",
+      "pricing_group": "Performance +",
+      "performance_plus_confirmed": true,
+      "martindale_cycles": 40000
+    },
+    {
+      "id": "celebrity-whyburn-stone",
+      "name": "Whyburn Stone",
+      "collection": "Whyburn",
+      "colour": "Stone",
+      "category": "Performance +",
+      "pricing_group": "Performance +",
+      "performance_plus_confirmed": true,
+      "martindale_cycles": 40000
+    },
+    {
+      "id": "celebrity-antique-brown",
+      "name": "Antique Brown",
+      "collection": "Antique",
+      "colour": "Brown",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 1",
+      "model_restriction": "All ranges except Newstead"
+    },
+    {
+      "id": "celebrity-antique-burgundy",
+      "name": "Antique Burgundy",
+      "collection": "Antique",
+      "colour": "Burgundy",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 1",
+      "model_restriction": "All ranges except Newstead"
+    },
+    {
+      "id": "celebrity-antique-green",
+      "name": "Antique Green",
+      "collection": "Antique",
+      "colour": "Green",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 1",
+      "model_restriction": "All ranges except Newstead"
+    },
+    {
+      "id": "celebrity-antique-walnut",
+      "name": "Antique Walnut",
+      "collection": "Antique",
+      "colour": "Walnut",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 1",
+      "model_restriction": "All ranges except Newstead"
+    },
+    {
+      "id": "celebrity-ascot-burgundy",
+      "name": "Ascot Burgundy",
+      "collection": "Ascot",
+      "colour": "Burgundy",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 1",
+      "model_restriction": "All ranges except Newstead"
+    },
+    {
+      "id": "celebrity-ascot-cocoa",
+      "name": "Ascot Cocoa",
+      "collection": "Ascot",
+      "colour": "Cocoa",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 1",
+      "model_restriction": "All ranges except Newstead"
+    },
+    {
+      "id": "celebrity-ascot-midnight",
+      "name": "Ascot Midnight",
+      "collection": "Ascot",
+      "colour": "Midnight",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 1",
+      "model_restriction": "All ranges except Newstead"
+    },
+    {
+      "id": "celebrity-ascot-porcini",
+      "name": "Ascot Porcini",
+      "collection": "Ascot",
+      "colour": "Porcini",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 1",
+      "model_restriction": "All ranges except Newstead"
+    },
+    {
+      "id": "celebrity-ascot-stone-grey",
+      "name": "Ascot Stone Grey",
+      "collection": "Ascot",
+      "colour": "Stone Grey",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 1",
+      "model_restriction": "All ranges except Newstead"
+    },
+    {
+      "id": "celebrity-ascot-tan",
+      "name": "Ascot Tan",
+      "collection": "Ascot",
+      "colour": "Tan",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 1",
+      "model_restriction": "All ranges except Newstead"
+    },
+    {
+      "id": "celebrity-ascot-thunder",
+      "name": "Ascot Thunder",
+      "collection": "Ascot",
+      "colour": "Thunder",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 1",
+      "model_restriction": "All ranges except Newstead"
+    },
+    {
+      "id": "celebrity-ascot-tuscan",
+      "name": "Ascot Tuscan",
+      "collection": "Ascot",
+      "colour": "Tuscan",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 1",
+      "model_restriction": "All ranges except Newstead"
+    },
+    {
+      "id": "celebrity-como-castello",
+      "name": "Como Castello",
+      "collection": "Como",
+      "colour": "Castello",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 1",
+      "model_restriction": "All ranges except Newstead"
+    },
+    {
+      "id": "celebrity-como-cognac",
+      "name": "Como Cognac",
+      "collection": "Como",
+      "colour": "Cognac",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 1",
+      "model_restriction": "All ranges except Newstead"
+    },
+    {
+      "id": "celebrity-como-sable",
+      "name": "Como Sable",
+      "collection": "Como",
+      "colour": "Sable",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 1",
+      "model_restriction": "All ranges except Newstead"
+    },
+    {
+      "id": "celebrity-english-conker",
+      "name": "English Conker",
+      "collection": "English",
+      "colour": "Conker",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 1",
+      "model_restriction": "All ranges except Newstead"
+    },
+    {
+      "id": "celebrity-lena-bottle-green",
+      "name": "Lena Bottle Green",
+      "collection": "Lena",
+      "colour": "Bottle Green",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 1",
+      "model_restriction": "All ranges except Newstead"
+    },
+    {
+      "id": "celebrity-lena-coffee",
+      "name": "Lena Coffee",
+      "collection": "Lena",
+      "colour": "Coffee",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 1",
+      "model_restriction": "All ranges except Newstead"
+    },
+    {
+      "id": "celebrity-lena-ebony",
+      "name": "Lena Ebony",
+      "collection": "Lena",
+      "colour": "Ebony",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 1",
+      "model_restriction": "All ranges except Newstead"
+    },
+    {
+      "id": "celebrity-lena-fossil",
+      "name": "Lena Fossil",
+      "collection": "Lena",
+      "colour": "Fossil",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 1",
+      "model_restriction": "All ranges except Newstead"
+    },
+    {
+      "id": "celebrity-lena-heather",
+      "name": "Lena Heather",
+      "collection": "Lena",
+      "colour": "Heather",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 1",
+      "model_restriction": "All ranges except Newstead"
+    },
+    {
+      "id": "celebrity-lena-marble",
+      "name": "Lena Marble",
+      "collection": "Lena",
+      "colour": "Marble",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 1",
+      "model_restriction": "All ranges except Newstead"
+    },
+    {
+      "id": "celebrity-lena-oriental-blue",
+      "name": "Lena Oriental Blue",
+      "collection": "Lena",
+      "colour": "Oriental Blue",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 1",
+      "model_restriction": "All ranges except Newstead"
+    },
+    {
+      "id": "celebrity-lena-pewter",
+      "name": "Lena Pewter",
+      "collection": "Lena",
+      "colour": "Pewter",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 1",
+      "model_restriction": "All ranges except Newstead"
+    },
+    {
+      "id": "celebrity-lena-porcelain",
+      "name": "Lena Porcelain",
+      "collection": "Lena",
+      "colour": "Porcelain",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 1",
+      "model_restriction": "All ranges except Newstead"
+    },
+    {
+      "id": "celebrity-lena-teal",
+      "name": "Lena Teal",
+      "collection": "Lena",
+      "colour": "Teal",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 1",
+      "model_restriction": "All ranges except Newstead"
+    },
+    {
+      "id": "celebrity-lena-vanilla",
+      "name": "Lena Vanilla",
+      "collection": "Lena",
+      "colour": "Vanilla",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 1",
+      "model_restriction": "All ranges except Newstead"
+    },
+    {
+      "id": "celebrity-lena-wedgewood",
+      "name": "Lena Wedgewood",
+      "collection": "Lena",
+      "colour": "Wedgewood",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 1",
+      "model_restriction": "All ranges except Newstead"
+    },
+    {
+      "id": "celebrity-salento-black",
+      "name": "Salento Black",
+      "collection": "Salento",
+      "colour": "Black",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 2",
+      "model_restriction": "Newstead only"
+    },
+    {
+      "id": "celebrity-salento-blue",
+      "name": "Salento Blue",
+      "collection": "Salento",
+      "colour": "Blue",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 2",
+      "model_restriction": "Newstead only"
+    },
+    {
+      "id": "celebrity-salento-chocolate",
+      "name": "Salento Chocolate",
+      "collection": "Salento",
+      "colour": "Chocolate",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 2",
+      "model_restriction": "Newstead only"
+    },
+    {
+      "id": "celebrity-salento-graphite",
+      "name": "Salento Graphite",
+      "collection": "Salento",
+      "colour": "Graphite",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 2",
+      "model_restriction": "Newstead only"
+    },
+    {
+      "id": "celebrity-salento-green",
+      "name": "Salento Green",
+      "collection": "Salento",
+      "colour": "Green",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 2",
+      "model_restriction": "Newstead only"
+    },
+    {
+      "id": "celebrity-salento-mushroom",
+      "name": "Salento Mushroom",
+      "collection": "Salento",
+      "colour": "Mushroom",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 2",
+      "model_restriction": "Newstead only"
+    },
+    {
+      "id": "celebrity-salento-stone",
+      "name": "Salento Stone",
+      "collection": "Salento",
+      "colour": "Stone",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 2",
+      "model_restriction": "Newstead only"
+    },
+    {
+      "id": "celebrity-salento-tan",
+      "name": "Salento Tan",
+      "collection": "Salento",
+      "colour": "Tan",
+      "category": "Leather",
+      "pricing_group": "Leather",
+      "leather_group": "Leather 2",
+      "model_restriction": "Newstead only"
+    }
+  ]
+}
